@@ -1,0 +1,99 @@
+@charset "utf-8";
+/** Regular */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+body{font-family: "San Francisco", "Palatino Linotype", "Helvetica Neue", sans-serif;
+	padding:50px;
+}
+
+.calculadora{
+	font-family: "San Francisco";
+	height: 436px;
+	width: 232px;
+	border: solid 1px;
+	border-right-style: none;
+	flex-wrap: wrap;
+	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox; /* TWEENER - IE 10 */
+	display: -webkit-flex; /* NEW - Chrome */
+	display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+}
+
+#pantallaValores{
+	font-family: "San Francisco";
+	font-size: 35px;
+	color:white;	
+	height: 87px;
+	width: 232px;
+	border: none;
+	text-align: end;
+	background-color: #202020;	
+}
+
+.botonEspecial{
+	font-size: 16px;
+	height: 58px;
+	width: 58px;
+	border: solid 1px;
+	border-left-style: none;
+	border-top-style: none;
+	text-align: center;
+	background-color: #96989C;
+}
+
+.contenedorBotonEspecialElevado{
+	height: 29px;
+	width: 58px;
+}
+.botonEspecialElevado{
+	font-size: 16px;
+	height: 29px;
+	width: 58px;
+	border: solid 1px;
+	border-left-style: none;
+	border-top-style: none;
+	text-align: center;
+	background-color: #96989C;
+}
+
+.botonOperacion{
+	font-size: 16px;
+	height: 58px;
+	width: 58px;
+	border: solid 1px;
+	border-left-style: none;
+	border-top-style: none;
+	text-align: center;
+	background-color: #f79010;
+}
+
+.botonNumero{
+	font-size: 24px;
+	font-style: bold;
+	height: 58px;
+	width: 58px;
+	border: solid 1px;
+	border-left-style: none;
+	border-top-style: none;
+	text-align: center;
+	background-color: #d4d5d9;
+}
+
+.botonNumero0{
+	font-size: 24px;
+	font-style: bold;
+	height: 58px;
+	width: 116px;
+	border: solid 1px;
+	border-left-style: none;
+	border-top-style: none;
+	text-align: center;
+	background-color: #d4d5d9;
+}
+

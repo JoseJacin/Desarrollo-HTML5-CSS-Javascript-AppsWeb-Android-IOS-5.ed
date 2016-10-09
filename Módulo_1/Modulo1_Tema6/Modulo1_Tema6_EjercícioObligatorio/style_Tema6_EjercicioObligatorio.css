@@ -1,0 +1,112 @@
+/*  Creado el 17-mar-2016
+    Autor : José Sánchez  */
+
+@charset "utf-8";
+
+body{
+  background: Bisque ;    
+  font-family: 'Arial', serif;
+}
+
+html, body {
+  margin-left: 6%;
+  margin-right: 6%;
+  padding: 0;
+}
+
+h1{
+  background: Tomato;
+  font-family: 'Times New Roman', serif;  
+  color: grey;
+  text-align: center;
+}
+
+p{
+  font-size: 1.2em;
+}
+
+li{
+  font-size: 1.2em;
+}
+
+a img {
+  border: none;
+}
+
+footer{
+  font-family: 'Times New Roman', serif;  
+  font-size: 1.5em;
+  color: #00254d;
+  width: 100%; 
+  background: Chocolate;
+  color: #ffffff;
+  margin-top: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: center;
+}
+
+#header{
+  width: 100%; 
+}
+
+#inicioNeocities{
+  display: block;
+  text-align: right;
+  font-size: 1.5em;
+  margin-top: 3%;
+}
+
+.cabecera h1{
+  background: Chocolate ;
+  color: #ffffff;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.general{
+  background:white;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+}
+
+.ejemploSection{
+  border-style: groove;
+  font-size: 1.2em;
+}
+
+.ejemplo{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.signoMenorQue{
+  font-family: 'Arial', serif;
+  font-size: 1em;
+  color: blue;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.signoMayorQue{
+  font-family: 'Arial', serif;
+  font-size: 1em;
+  color: blue;
+  margin:0;
+  padding: 0;
+  display: inline;
+}
+
+.etiqueta{
+  font-family: 'Arial', serif;
+  font-size: 1em;
+  color: brown;
+  margin:0;
+  padding: 0;
+  display: inline;
+}

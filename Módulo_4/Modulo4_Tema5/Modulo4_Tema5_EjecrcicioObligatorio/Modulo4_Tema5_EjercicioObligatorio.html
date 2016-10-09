@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora</title>
+        <meta charset="UTF-8">
+        <link href="./Modulo4_Tema5_EjercicioObligatorio.css" rel="stylesheet" type="text/css"/>
+    </head>
+	<body onLoad="inicio()">
+		<h1 id="h1"></h1>
+		<h4 id="nombre"></h4>
+		<div id="fecha"></div><br/>
+
+        <center>
+            <div class="calculadora">
+                <center><input type="text" id="pantallaValores" onkeypress="return validaCampoNumerico(event)"></center>
+                
+                <div class="contenedorBotonEspecialElevado">
+	                <button class="botonEspecialElevado" onClick="xpotencia2()">x<sup>2</sup></button>
+		            <button class="botonEspecialElevado" onClick="xpotencia()">x<sup>y</sup></button>
+                </div>
+                
+                <button class="botonEspecial" onClick="xraiz2()">sqrt</button>
+                <button class="botonEspecial" onClick="xinverso()">1/x</button>
+                <button class="botonEspecial" onClick="xentero()">ent</button>
+                
+                <button class="botonEspecial" onClick="limpiarCE()">C</button>
+                <button class="botonEspecial" onClick="limpiarC()">CE</button>
+                <button class="botonEspecial" onClick="borrar()">Borrar</button>
+                <button class="botonOperacion" onClick="xdivision()">/</button>
+                
+                <button class="botonNumero" onClick="x7()">7</button>
+                <button class="botonNumero" onClick="x8()">8</button>
+                <button class="botonNumero" onClick="x9()">9</button>
+				<button class="botonOperacion" onClick="xmultiplicacion()">X</button>
+ 
+                <button class="botonNumero" onClick="x4()">4</button>
+                <button class="botonNumero" onClick="x5()">5</button>
+                <button class="botonNumero" onClick="x6()">6</button>
+                <button class="botonOperacion" onClick="xresta()">-</button>
+
+                <button class="botonNumero" onClick="x1()">1</button>
+                <button class="botonNumero" onClick="x2()">2</button>
+                <button class="botonNumero" onClick="x3()">3</button>
+                <button class="botonOperacion" onClick="xsuma()">+</button>
+
+                <button class="botonNumero0" onClick="x0()">0</button>
+                <button class="botonNumero" onClick="xdecimal()">.</button>
+                <button class="botonOperacion" onClick="xigual()">=</button>
+            </div>
+        </center> 
+    </body>
+
+		<script type="text/javascript">
+			<!--Creación del mensaje de bienvenida-->
+			var fecha = new Date();
+			var mensaje;
+
+			<!--Se establece el tipo de mensaje dependiendo de la hora del sistema en la que se carga la página-->
+			if (fecha.getHours() < 7)  { mensaje = "Buenas noches";}
+			else if (fecha.getHours() < 12) { mensaje = "Buenos días"  ;}
+			else if (fecha.getHours() < 21) { mensaje = "Buenas tardes";} 
+			else {mensaje = "Buenas noches";}
+			
+			<!--Se añade el mensaje de la hora y el mensaje de bienvenida-->
+			document.getElementById("h1").innerHTML    = mensaje;
+			document.getElementById("nombre").innerHTML="Bienvendido a la calculadora de José Sánchez Rodríguez";
+			
+			<!--Declaración de variables-->
+			var numero1, <!--Primer número de la operación-->
+				numero2, <!--Segundo número de la operación-->
+				operacion="", <!--Operación a ejecutar-->
+				ultimaOperacion="",<!--Ultima operación ejecutada-->
+				datoPulsado="", <!--Dato que se ha pulsado-->
+				hayValores=false, <!--Indica si hay valores en la pantalla-->
+				indNumero=1, <!--Indica si se está escribiendo sobre la variable numero1 o numero2-->
+				indOperacionMarcada=0, <!--Indica si ya se ha marcado una operación-->
+				indIgual=0, <!--Indica si se ha pulsado el igual-->
+				indBorrar=0, <!--Indica si se debe borrar la pantalla-->
+				indCero=0; <!--Indica si debe o no mostrarse un 0-->
+			
+			<!--Se inicializan todas las variables-->
+			function inicio () {
+				pantallaValores= document.getElementById("pantallaValores");
+				limpiarC(); <!--Se llama a limpiarC para limpiar todas las variables-->
+			}
+			
+			<!--Se ejecuta al pulsar el botón C. Se limpian todas las variables-->
+			function limpiarC() {
+				pantallaValores.value="0"; <!--Se limpia la pantalla de valores-->
+				numero1=parseInt(pantallaValores.value); <!--Se limpia el numero1-->
+				numero2=parseInt(pantallaValores.value); <!--Se limpia el numero2-->
+				operacion="";
+				ultimaOperacion="";
+				datoPulsado="";
+				hayValores=false;
+				indNumero=1;
+				indOperacionMarcada=0;
+				indIgual = 0;
+				indBorrar=0;
+				indCero=0;
+			}
+			
+			<!--Se ejecuta al pulsar el botón CE. Se limpia la pantalla-->
+			function limpiarCE() {
+				pantallaValores.value=""; <!--Se limpia la pantalla de valores-->
+				hayValores=false;
+				indCero=0;
+			}
+
+			<!--Se ejecuta al pulsar el botón Borrar. Se elimina el ultimo digito introducido-->
+			function borrar() {
+				pantallaValores.value = pantallaValores.value.substr(0,pantallaValores.value.length-1);
+			}
+
+			<!--Se ejecuta al pulsar cualquier tecla del teclado-->
+			function validaCampoNumerico(e){
+				tecla = (document.all) ? e.keyCode : e.which;
+			
+				//Tecla de retroceso para borrar, siempre la permite
+				if (tecla==8){
+					if (pantallaValores.value.length-1 == 0) {
+						hayValores = false;
+					}
+					return true;
+				}
+					
+				// Patron de entrada, en este caso solo acepta numeros
+				patron =/[0-9-.]/;
+				tecla_final = String.fromCharCode(tecla);
+				if (tecla_final == ".") {
+					if (pantallaValores.value.length == 0) {
+						hayValores = false;
+					}
+					if (pantallaValores.value.indexOf(".") < 0) {
+						if (hayValores == true) {
+							if (patron.test(tecla_final) == true) {
+								mosrarEnPantalla(tecla_final); return false;
+							} else {return patron.test(tecla_final);}
+						} else {
+							patron =/[0-9-]/;
+							if (patron.test(tecla_final) == true) {
+								mosrarEnPantalla(tecla_final); return false;
+							} else {return patron.test(tecla_final);}
+						}
+					} else {
+						patron =/[0-9-]/;
+						if (patron.test(tecla_final) == true) {
+							mosrarEnPantalla(tecla_final); return false;
+						} else {return patron.test(tecla_final);}
+					}
+				} else if (tecla_final == "+") {xsuma();patron =/[0-9]/;return patron.test(tecla_final);}
+				  else if (tecla_final == "-") {xresta();patron =/[0-9]/;return patron.test(tecla_final);}
+				  else if (tecla_final == "*") {xmultiplicacion();patron =/[0-9]/;return patron.test(tecla_final);}
+				  else if (tecla_final == "/") {xdivision();patron =/[0-9]/;return patron.test(tecla_final);}
+				  else if (tecla == 13) {xigual();}
+				  else {
+					hayValores = true;
+					if (patron.test(tecla_final) == true) {
+						mosrarEnPantalla(tecla_final);return false;
+					} else {return patron.test(tecla_final);}
+				}
+			}
+
+			<!--Se ejecutan al pulsar un botón con número-->
+			function x1() {datoPulsado = "1"; mosrarEnPantalla(datoPulsado);} 
+			function x2() {datoPulsado = "2"; mosrarEnPantalla(datoPulsado);} 
+			function x3() {datoPulsado = "3"; mosrarEnPantalla(datoPulsado);} 
+			function x4() {datoPulsado = "4"; mosrarEnPantalla(datoPulsado);} 
+			function x5() {datoPulsado = "5"; mosrarEnPantalla(datoPulsado);} 
+			function x6() {datoPulsado = "6"; mosrarEnPantalla(datoPulsado);} 
+			function x7() {datoPulsado = "7"; mosrarEnPantalla(datoPulsado);} 
+			function x8() {datoPulsado = "8"; mosrarEnPantalla(datoPulsado);} 
+			function x9() {datoPulsado = "9"; mosrarEnPantalla(datoPulsado);} 
+			function x0() {datoPulsado = "0"; mosrarEnPantalla(datoPulsado);} 
+			function xdecimal() {datoPulsado = "."; mosrarEnPantalla(datoPulsado);} 
+			
+			<!--Se ejecutan al pulsar un botón de operación binaria-->
+			function xsuma() {operacion = "+"; indIgual = 0; ejecutaOperacion(operacion);} 
+			function xresta() {operacion = "-"; indIgual = 0; ejecutaOperacion(operacion);} 
+			function xmultiplicacion() {operacion = "*"; indIgual = 0; ejecutaOperacion(operacion);} 
+			function xdivision() {operacion = "/"; indIgual = 0; ejecutaOperacion(operacion);} 
+			function xpotencia() {operacion = "x^y"; indIgual = 0; ejecutaOperacion(operacion);} 
+			
+			<!--Se ejecutan al pulsar un botón de operación unitaria-->
+			function xpotencia2() {operacion = "x^2"; indIgual = 0; ejecutaOperacion(operacion);} 
+			function xinverso() {operacion = "inv"; indIgual = 0; ejecutaOperacion(operacion);} 
+			function xraiz2() {operacion = "sqrt"; indIgual = 0; ejecutaOperacion(operacion);} 
+			function xentero() {operacion = "ent"; indIgual = 0; ejecutaOperacion(operacion);} 
+	
+			<!--Se ejecuta al pulsar el botón =. se muestra el resultado de la operación binaria-->
+			function xigual() {
+				if (indIgual == 0) {
+					indIgual = 1;
+				} else if (indIgual == 1) {
+					indIgual = 2;
+				}
+				operacion = ultimaOperacion;
+				ejecutaOperacion(operacion);
+			}
+			
+			function mosrarEnPantalla(datoPulsado) {
+				if (datoPulsado == ".") {
+					if (pantallaValores.value.indexOf(".") < 0) {
+						if (hayValores == true) {
+							if (indCero == 0) {
+								pantallaValores.value=datoPulsado;
+								indCero = 1;
+							} else {
+								if (pantallaValores.value.length < 9) {
+									pantallaValores.value=pantallaValores.value+datoPulsado;
+								}
+							}
+						}
+					}
+				} else {
+					if (indBorrar == 1) {limpiarCE(); indBorrar = false;}
+					else if (indBorrar == 2) {limpiarC();}
+					if (indCero == 0) {
+						pantallaValores.value=datoPulsado;
+						indCero = 1;
+					} else {
+						if (pantallaValores.value.length < 9) {
+							pantallaValores.value=pantallaValores.value+datoPulsado;
+						}
+					}
+					hayValores=true;
+				}
+			}
+			
+
+			function ejecutaOperacion(operacion) {
+				if (datoPulsado == ".") {
+					pantallaValores.value = pantallaValores.value.substr(0,pantallaValores.value.lenght-1);
+				}
+
+				if (indNumero == 1) {numero1=parseFloat(pantallaValores.value);indBorrar = 1;}
+				else if (indIgual == 1) {numero2=parseFloat(pantallaValores.value);indBorrar = 1;}
+
+				if (indOperacionMarcada == 1 && (indIgual ==0 || indIgual == 1 || indIgual == 2)) {
+					if (indIgual == 1 || indIgual == 2) {<!--Operaciones binarias-->
+						if (operacion=="+") {pantallaValores.value = redondear(parseFloat(numero1 + numero2));}
+						if (operacion=="-") {pantallaValores.value = parseFloat(numero1 - numero2);}
+						if (operacion=="*") {pantallaValores.value = parseFloat(numero1 * numero2);}
+						if (operacion=="/") {
+							if (numero2==0) {pantallaValores.value = "Imposible " + numero1 + "/0";}
+							else {
+								pantallaValores.value = parseFloat(numero1 / numero2);
+							}
+						}
+						if (indIgual == 0) {
+							indBorrar = 1;
+						}
+					}
+				}
+
+				if (indIgual ==0 || indIgual == 1 || indIgual == 2) {
+					if (indIgual == 0) {
+						indBorrar = 1;
+					}
+					
+					<!--Operaciones unitarias-->
+					if (operacion=="x^2") {pantallaValores.value = parseFloat(Math.pow(numero1,2));indBorrar = 2;ultimaOperacion = operacion;}
+					if (operacion=="inv") {pantallaValores.value = parseFloat((1/numero1));indBorrar = 2;ultimaOperacion = operacion}
+					if (operacion=="sqrt") {
+						if (numero1 < 0) {pantallaValores.value = "Error";indBorrar = 2;ultimaOperacion = operacion;}
+						else {pantallaValores.value = parseFloat(Math.sqrt(numero1));indBorrar = 2;ultimaOperacion = operacion;}
+					}
+					if (operacion=="ent") {
+						if (numero1 > 0) {pantallaValores.value = parseFloat(Math.floor(numero1));indBorrar = 2;ultimaOperacion = operacion;}
+						else {pantallaValores.value = parseFloat(Math.ceil(numero1));indBorrar = 2;ultimaOperacion = operacion;}
+					}
+				}
+				
+				indNumero = 2;
+				indOperacionMarcada = 1;
+				if (indIgual != 2) {
+					ultimaOperacion = operacion;
+				}
+				numero1=parseFloat(pantallaValores.value);
+				pantallaValores.focus();
+			}
+			
+			function redondear(resultado) {
+				if (resultado.toString().length > 9) {
+					resultado = Math.round(resultado / 10);
+				}
+				return resultado;
+			}
+			/*function suma() {numero2=parseInt(pantallaValores.value); op="+"; pantallaValores.value=""; pantallaValores.focus();}
+			function resta() {numero2=parseInt(pantallaValores.value); numero1=pantallaValores.value; op="-"; pantallaValores.value=""; pantallaValores.focus();}
+			function multiplicacion() {numero2=parseInt(pantallaValores.value); numero1=pantallaValores.value; op="*"; pantallaValores.value=""; pantallaValores.focus();}
+			function division() {numero2=parseInt(pantallaValores.value); numero1=pantallaValores.value; op="/"; pantallaValores.value=""; pantallaValores.focus();
+			}
+
+
+
+			function cuadrado() {pantallaValores.value=parseInt(pantallaValores.value)*parseInt(pantallaValores.value);}
+			function raizCuadrada() {
+			if(pantallaValores.value<0){pantallaValores.value=" Nmro. imaginario"}
+			else {pantallaValores.value= Math.sqrt(parseInt(pantallaValores.value));}}
+			function inverso() {pantallaValores.value= 1/parseInt(pantallaValores.value);}
+			
+			function pos() {pantallaValores.value= Math.floor(parseInt(pantallaValores.value));}
+			function neg() {pantallaValores.value= Math.ceil(parseInt(pantallaValores.value));}
+			
+			function entero(){
+			if(parseInt(pantallaValores.value)>0){pos()}
+			else{neg();}
+			}
+			
+			function igual() {
+			if (op=="+"){pantallaValores.value= (numero2 +numero1);}
+			if (op=="-"){pantallaValores.value= (numero2 -numero1);}
+			if (op=="*"){pantallaValores.value= (numero2 * numero1);}
+			if (op=="/"){pantallaValores.value= (numero2 / numero1);
+			if(numero1==0){pantallaValores.value="Imposible "+numero2+"/0";}
+			}	
+			
+			
+			function igual() {
+			if (op=="+"){pantallaValores.value= (numero2 +numero1);}
+			if (op=="-"){pantallaValores.value= (numero2 -numero1);}
+			if (op=="*"){pantallaValores.value= (numero2 * numero1);}
+			if (op=="/"){pantallaValores.value= (numero2 / numero1);
+			if(numero1==0){pantallaValores.value="Imposible "+numero2+"/0";}
+			}
+			} 
+			
+			function limpiarC() {pantallaValores.value=""}	*/  
+		</script>
+
+</html>

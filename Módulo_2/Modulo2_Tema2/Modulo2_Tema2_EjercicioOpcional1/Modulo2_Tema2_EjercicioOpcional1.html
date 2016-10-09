@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Herencia</title>
+		<style type="text/css">
+			#caja .cabecera h1 {color:yellow;} /*Puntuación (A,B,C,D)=0,1,0,1.*/
+			#caja .cabecera h1 {color:green;} /*Puntuación (A,B,C,D)=0,1,1,1.*/
+			header h1 {color:brown;} /*Puntuación (A,B,C,D)=0,0,0,2.*/
+			h1 {color:purple;} /*Puntuación (A,B,C,D)=0,0,0,1.*/
+			h1 {color:grey;} /*Puntuación (A,B,C,D)=0,0,0,1.*/
+			h1 {background-color:#BCD353;} /*Puntuación (A,B,C,D)=0,0,0,1. Sería también ganador, ya que la propiedad aplicada no interfiere con ninguna otra*/
+			p {display:inline;}
+		</style>
+		<link href="style_Modulo2_Tema2_EjercicioOpcional1.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="caja">
+			<header class="cabecera">
+				<h1 style="color: blue;">Cabecera: header</h1> <!--Puntuación (A,B,C,D)=1,0,0,0. Sería el GANADOR-->
+                
+                <p style="color: white;">Parámetros utilizados</p><br>
+                <p class="etiquetaHTML">&nbsp;&nbsp;&nbsp;&lt;style type=</p><p class="cadenaCSS">"text/css"</p><p class="etiquetaHTML">&gt;</p><br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="selectorCSS">#caja .cabecera h1 {</p><p class="propiedadCSS">color</p><p class="selectorCSS">:</p><p class="valorCSS">yellow</p><p class="selectorCSS">;}</p> <p class="comentario">/*Puntuación (A,B,C,D)=0,1,0,1.*/</p></p><br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="selectorCSS">#caja .cabecera h1 {</p><p class="propiedadCSS">color</p><p class="selectorCSS">:</p><p class="valorCSS">green</p><p class="selectorCSS">;}</p> <p class="comentario">/*Puntuación (A,B,C,D)=0,1,1,1.*/</p></p><br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="selectorCSS">header h1 {</p><p class="propiedadCSS">color</p><p class="selectorCSS">:</p><p class="valorCSS">brown</p><p class="selectorCSS">;}</p> <p class="comentario">/*Puntuación (A,B,C,D)=0,0,0,2.*/</p></p><br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="selectorCSS">h1 {</p><p class="propiedadCSS">color</p><p class="selectorCSS">:</p><p class="valorCSS">purple</p><p class="selectorCSS">;}</p> <p class="comentario">/*Puntuación (A,B,C,D)=0,0,0,1.*/</p></p><br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="selectorCSS">h1 {</p><p class="propiedadCSS">color</p><p class="selectorCSS">:</p><p class="valorCSS">grey</p><p class="selectorCSS">;}</p> <p class="comentario">/*Puntuación (A,B,C,D)=0,0,0,1.*/</p></p><br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="selectorCSS">h1 {</p><p class="propiedadCSS">background-color</p><p class="selectorCSS">:</p><p class="valorCSS">#BCD353</p><p class="selectorCSS">;}</p> <p class="comentario">/*Puntuación (A,B,C,D)=0,0,0,1. Sería también ganador, ya que la propiedad aplicada no interfiere con ninguna otra*/</p></p><br>
+				<p class="etiquetaHTML">&nbsp;&nbsp;&nbsp;&lt;/style&gt;</p><br>
+                
+                <br>
+                
+                <p class="etiquetaHTML">&nbsp;&nbsp;&nbsp;&lt;header</p><p class="propiedadCSS"> class=</p><p class="cadenaCSS">"cabecera"</p><p class="etiquetaHTML">&gt;</p><br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="etiquetaHTML">&lt;h1</p><p class="propiedadCSS"> style=</p><p class="cadenaCSS">"</p><p class="propiedadCSS">color</p><p class="selectorCSS">:</p><p class="valorCSS"> blue</p><p class="propiedadCSS">;</p><p class="cadenaCSS">"</p><p class="etiquetaHTML">&gt;</p><p style="color: white;">Cabecera: header</p><p class="etiquetaHTML">&lt;/h1&gt;</p> <p class="etiquetaHTML"><p class="comentario">&lt;--Puntuación (A,B,C,D)=1,0,0,0. Sería el GANADOR--&gt;</p></p></p><br>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="color: white;">[...]</p></p><br>
+                <p class="etiquetaHTML">&nbsp;&nbsp;&nbsp;&lt;/header&gt;</p><br>
+			</header>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700%7CRaleway:400,700');
+body { 
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+	-webkit-font-smoothing: antialiased; 
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: url(./imagenes/blurry-night.jpg) #000 no-repeat center center fixed;
+	background-size: cover; 
+}
+h1, h3, h4, h5, h6 {
+	font-family: "Raleway","Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+	color: #fff;
+	text-transform: uppercase; 
+	font-weight: bold; 
+	padding-left: 1em;
+}
+h2{ letter-spacing: 0.2em; color: #5515D1; padding-left: 1em; }
+h3{ letter-spacing: 0.2em; }
+h6{ font-size: 0.9em; letter-spacing: 0.1em; }
+h5{ font-size: 1.1em; letter-spacing: 0.2em; }
+
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #fff;
+}
+a:visited {
+	color: #fff;
+}
+a:hover {
+	color: #CFC;
+}
+
+b {font-size: 1.1em; color: #D11582;}
+
+#main {
+   height: 80%;
+   display: -webkit-flex;
+   display: flex;
+   flex-flow: row;
+}
+#main article {
+	background: #CFC; 
+	background: radial-gradient(#01B234,rgba(255,255,255,0.6));
+	min-width: 18em;
+	max-width: 36em;
+
+	margin: 6em;
+	padding: 6em;
+	border-radius: 30%;
+
+	flex: 3 1 40%;
+	order: 2;				
+}
+header, footer {
+	display: block;
+	min-height: 10%;
+}
+#main nav {
+	background: url(./imagenes/curly_bracket_left.svg) no-repeat center center;
+	padding: 2em;
+	background-origin: content-box;
+	flex: 1 6 30%;
+	order: 1;
+}
+#main aside {
+	background: url(./imagenes/curly_bracket_right.svg) no-repeat center center;
+	padding: 2em;
+	background-origin: content-box;
+	flex: 1 6 30%;
+	order: 3;
+}
+#icono {
+	text-align: center;	
+}
+#icono img {
+	display: inline-block;
+	width: 12%;					
+}
+#icono a:link img {
+	opacity: 0.7;
+}
+#icono a:hover img {
+	opacity: 1.0;
+}
+video#bgvideo { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+@media screen and (max-device-width: 800px) {
+    #bgvideo {
+        display: none;
+    }
+    #main {
+   		height: 90%;
+	}
+	#main article {
+		min-width: 16em;
+		max-width: 20em;
+		margin: 1em;
+		padding: 4em;			
+	}
+    #main nav,aside,footer {
+		display: none;
+	}
+	footer {
+		display: none;
+	}
+}

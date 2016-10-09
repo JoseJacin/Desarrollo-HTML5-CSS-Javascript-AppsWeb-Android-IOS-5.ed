@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Date</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1 id="h1"></h1>
+        <p id ="name"></p> <!--nombre de la persona que hace la entrega debajo del titulo -->
+        <h2 id="h2">La fecha y la hora son:</h2>
+        <div id="fecha"></div>
+        <div> <!--Un bloque <div> debajo de la fecha y la hora y las instrucciones JavaScript necesarias para que muestre en dicho bloque el contenido de las siguientes propiedades DOM  en líneas separadas, que comiencen por el nombre de la propiedad(es) mostrada(s):-->
+        	<p id="h2_innerHTML"></p> <!--a) Contenido de innerHTML de elemento identificado por id="h2"-->
+            <p id="h1_outerHTML"></p> <!--b) Contenido de outerHTML de elemento identificado por id="h1"-->
+            <p id="location_href"></p> <!--c) Contenido de de la propiedad global: location.href-->
+            <p id="location"></p> <!--d) Contenido de de la propiedad global: location-->
+            <p id="screen_width_height"></p> <!--e) Contenido de de las propiedades globales: screen.width y screen.heigth-->
+        </div>
+        
+        <script type="text/javascript">
+			var fecha = new Date();
+			var msj;
+			
+			if (fecha.getHours() < 7) {
+				msj = "Buenas noches";
+			} 
+			else if (fecha.getHours() < 12) {
+				msj = "Buenos días";
+			} 
+			else if (fecha.getHours() < 21) {
+				msj = "Buenas tardes";
+			} 
+			else { 
+				msj = "Buenas noches";
+			}
+			
+			document.getElementById("h1").innerHTML = msj;
+			document.getElementById("fecha").innerHTML = fecha;
+			
+			<!--nombre de la persona que hace la entrega debajo del titulo -->
+			document.getElementById("name").innerHTML = "<strong>José Sánchez Rodríguez</strong>"; 
+			
+			<!--a) Contenido de innerHTML de elemento identificado por id="h2"-->
+			document.getElementById("h2_innerHTML").innerHTML = document.getElementById("h2").innerHTML; 
+			
+			<!--b) Contenido de outerHTML de elemento identificado por id="h1"-->
+			var h1_outerHTML = document.getElementById("h1"); 
+			var h1_outerHTML_2 = document.getElementById("h1_outerHTML");
+			h1_outerHTML_2.innerHTML = h1_outerHTML.outerHTML.replace(/</g, "&lt;");
+
+			<!--c) Contenido de de la propiedad global: location.href-->
+			document.getElementById("location_href").innerHTML = "Window Location Href: " + window.location.href;
+			
+			<!--d) Contenido de de la propiedad global: location-->
+			document.getElementById("location").innerHTML = "Window Location: " + window.location;
+			
+			<!--e) Contenido de de las propiedades globales: screen.width y screen.heigth-->
+			document.getElementById("screen_width_height").innerHTML = 	"Screen Width: " + screen.width + "<br>" +
+																		"Screen Height: " + screen.height;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body { margin-bottom: 60px; color: grey;}
+
+body > .container { padding: 60px 15px 0; }
+
+.container .text-muted {
+  margin: 20px 0;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 3px grey;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: green;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.navbar-default { background: green; }
+
+.navbar-header .navbar-brand,
+.navbar-header .navbar-brand:hover,
+.navbar-default .navbar-nav > li a { color: white; text-shadow: 1px 2px 3px grey; }
+
+.navbar-default .navbar-nav > li a:hover { color: white; text-shadow: 1px 2px 3px grey; background: rgba(0,0,0, 0.1); }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover { background: gold; color: white; text-shadow: 1px 2px 3px grey;}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover { background: gold;}
+
+.navbar-nav > li > .dropdown-menu { background: green;}
+
+.dropdown-menu > li > a:hover { background: gold;}
+
+.page-header { border-bottom-color: green; color: green; text-shadow: 1px 2px 3px grey; }
+
+.navbar-default .navbar-toggle { border-color: white; }
+
+.navbar-default .navbar-toggle .icon-bar { background: white;}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open >a:focus,
+.navbar-default .navbar-nav > .open >a:hover { color: white; }
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a { color: white; }
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover { color: white; background:rgba(0,0,0, 0.1);}

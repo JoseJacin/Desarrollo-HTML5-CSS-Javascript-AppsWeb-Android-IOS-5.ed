@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+    		<meta charset="UTF-8">
+    		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Calculadora JQuey</title>
+        <link rel="stylesheet" href="css/Modulo5_Tema7_EjercicioObligatorio.css"/>
+    </head>
+	<body id="cuerpoBody">
+			<main>
+	    		<header>
+	            <h1 id="h1"></h1>
+	            <h4 id="nombre"></h4>
+	            <div id="fecha"></div><br/>
+	        </header>
+	
+	        <section>
+        		<!-- display -->
+        			<div class="pantallaValores">
+          			<input id="pantallaValores" type="text" placeholder="0" readonly="readonly">
+        			</div>
+
+	        	  <div class="botones">
+									<button id="botonEspecialFactorial"        title="Factorial">n!</button>
+									<button id="botonEspecialInverso"          title="Inverso"><sup>1</sup>/<sub>x</sub></button>
+									<button id="botonEspecialEntero"           title="Entero">ent</button>
+									<button id="botonEspecialBorrar"           title="Borrar">Bor</button>
+									<button id="botonEspecialLimpiarC"         title="Limpar C">C</button>
+									<button id="botonOperacionDivision"        title="División">&divide;</button>
+							</div>
+	        	  <div class="botones">
+									<button id="botonEspecialElevadoPotencia"  title="X elevado a Y">x<sup>y</sup></button>
+									<button id="botonEspecial2ElevadoN"        title="2 elevado a n">2<sup>n</sup></button>
+									
+									
+									<button id="botonNumero7"                  title="Nº 7">7</button>
+									<button id="botonNumero8"                  title="Nº 8">8</button>
+									<button id="botonNumero9"                  title="Nº 9">9</button>
+									<button id="botonOperacionMultiplicacion"  title="Multiplicación">X</button>
+							</div>
+	        	  <div class="botones">
+									<button id="botonEspecialElevadoPotencia2" title="Cuadrado">x<sup>2</sup></button>
+									<button id="botonEspecialElevadoPotencia3" title="Cubo">x<sup>3</sup></button>
+									<button id="botonNumero4"                  title="Nº 4">4</button>
+									<button id="botonNumero5"                  title="Nº 5">5</button>
+									<button id="botonNumero6"                  title="Nº 6">6</button>
+									<button id="botonOperacionResta"           title="Resta">-</button>
+							</div>
+	        	  <div class="botones">
+									<button id="botonEspecialRaiz2"            title="Raíz cuadrada"><sup>2</sup>&#8730;<sub>x</sub></button>
+									<button id="botonEspecialRaiz3"            title="Raíz cubica"><sup>3</sup>&#8730;<sub>x</sub></button>
+									<button id="botonNumero1"                  title="Nº 1">1</button>
+									<button id="botonNumero2"                  title="Nº 2">2</button>
+									<button id="botonNumero3"                  title="Nº 3">3</button>
+									<button id="botonOperacionSuma"            title="Suma">+</button>
+							</div>
+	        	  <div class="botones">
+									<button id="botonEspecialSumatorio"        title="Sumatorio">&Sigma;</button>
+									<button id="botonEspecialProducto"         title="Producto">&Pi;</button>
+									<button id="botonNumero0"                  title="Nº 0">0</button>
+									<button id="botonNumeroDecimal"            title="Decimal">.</button>
+									<button id="botonEspecialPositivoNegativo" title="Pôsitivo/Negativo">&plusmn;</button>
+									<button id="botonOperacionIgual"           title="Igual">=</button>
+							</div>
+	        </section> 
+	  	</main>
+		<script>
+            /*Creación del mensaje de bienvenida*/
+            var fecha = new Date();
+            var mensaje;
+            
+            /*Se establece el tipo de mensaje dependiendo de la hora del sistema en la que se carga la página*/
+            if (fecha.getHours() < 7)  { mensaje = "Buenas noches";}
+            else if (fecha.getHours() < 12) { mensaje = "Buenos días"  ;}
+            else if (fecha.getHours() < 21) { mensaje = "Buenas tardes";} 
+            else {mensaje = "Buenas noches";}
+            
+            /*Se añade el mensaje de la hora y el mensaje de bienvenida*/
+            document.getElementById("h1").innerHTML    = mensaje;
+            document.getElementById("nombre").innerHTML="Bienvendido a la calculadora de José Sánchez Rodríguez";
+        </script>
+        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="js/Modulo5_Tema7_EjercicioObligatorio.js"></script>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="jquery-2.2.0.min.js" ></script>
+  <script type="text/javascript" src="interact.min.js" ></script>
+  <script type="text/javascript" src="cordova.js" ></script>
+  <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+  <title>TemporizadorV</title>
+
+  <style>
+  *{
+    -webkit-touch-callout: none; /* anula el efecto visual del touch prolongado sobre el objeto */
+
+    user-select: none; /* user-select, hace el objeto no seleccionable */
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* anula el feedback de color al hacer tap en un link */
+    -webkit-tap-highlight-color: transparent; /* similar anterior en algunos android */
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: Consolas, "Courier New", monospace;
+  }
+  h1{
+    margin: 0;
+    padding: 0;
+    font-size: 6vh;
+  }
+  #caja svg {
+    width:80%;
+    height:80%;
+  }
+  #crono{
+    cursor:pointer;
+  }
+  #entrada{
+    font-size: 6vh;
+  }
+  @media (orientation:landscape){
+    #caja {
+      margin-left:auto;
+      margin-right:auto;
+      width:100vh; // ancho de 100vh, es el 100% del alto
+                   // de la ventana de visualización
+    }
+  }
+  @media (orientation:portrait){
+    #caja {
+      width:100%; //ancho máximo
+    }
+  }
+
+  .st0{fill:#EDEEF0;stroke:#000000;stroke-miterlimit:10;}
+  .st1{fill:#C64832;}
+  .st2{fill:#00EEF0;}
+  </style>
+
+  <script type="text/javascript">
+
+    function onDeviceReady() { };
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    var t;
+
+    function arrancar_crono() { t=setInterval(cuenta_atras, 1000); };
+    function parar_crono()    { clearInterval(t); t=undefined; };
+
+    function mostrar_crono() {
+      var s = $("#segs").html();
+      a = s*6
+      seg.setAttribute("transform", "rotate(" +a+ " 230.5 230.5)");
+    }
+
+    function cuenta_atras() {
+      var s = $("#segs").html();
+      if (s == 0) {
+        parar_crono();
+        playBeep();
+        vibrate();
+      }
+      decrementar();
+    }
+
+    function incrementar() {
+      var s = +$("#segs").html() + 1;
+      if (s > 60) { s = 60; }
+      if (s < 10) {$("#segs").html('0'+s);}else{ $("#segs").html(s);}
+
+      mostrar_crono();
+      if (t == undefined) arrancar_crono()
+    }
+
+    function decrementar() {
+      var s = +$("#segs").html() - 1;
+      if (s < 0) { s = 0; }
+      if (s < 10) {$("#segs").html('0'+s);}else{ $("#segs").html(s);}
+      mostrar_crono();
+    }
+
+    function playBeep() { navigator.notification.beep(); }
+
+    function vibrate() { navigator.notification.vibrate(4000); }
+
+    $(document).ready(function(){
+      $("#dec").on('click', decrementar);
+      $("#inc").on('click', incrementar);
+      interact('#crono').on('tap', incrementar);
+
+      mostrar_crono();
+    })
+  </script>
+</head>
+<body>
+
+  <div id="caja">
+  <h1>TemporizadorV</h1>
+
+  <div id="entrada">
+  <button type="button" id="dec"><big>-</big></button>
+  <span id="segs">00</span> s
+  <button type="button" id="inc"><big>+</big></button>
+  </div>
+  <div>
+  <svg id="crono"  version="1.1" x="0px" y="0px"
+     viewBox="0 0 461 461" style="enable-background:new 0 0 461 461;" xml:space="preserve">
+    <image style="overflow:visible;" width="462" height="462" xlink:href="esfera.png" ></image>
+    <g id="seg">
+      <path class="st0" d="M206.2,103.6v311.3c0,13.4,10.9,24.3,24.3,24.3s24.3-10.9,24.3-24.3V103.6H206.2z"/>
+      <rect x="225.5" y="95.6" class="st1" width="10" height="70"/>
+    </g>
+    <circle class="st2" cx="230.5" cy="230.5" r="17.5"/>
+  </svg>
+  </div>
+  </div>
+</body>
+</html>

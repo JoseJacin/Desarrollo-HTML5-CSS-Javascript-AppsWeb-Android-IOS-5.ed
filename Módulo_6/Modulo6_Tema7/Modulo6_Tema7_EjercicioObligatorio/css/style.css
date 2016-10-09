@@ -1,0 +1,190 @@
+/* ==================== *\
+   FUENTES TIPOGRAFICAS
+\* ==================== */
+
+@font-face {
+  font-family: 'Lobster Two';
+  src:
+    url('../fonts/LobsterTwo/LobsterTwo-Regular.eot')   format('embedded-opentype'),
+    url('../fonts/LobsterTwo/LobsterTwo-Regular.woff2') format('woff2'),
+    url('../fonts/LobsterTwo/LobsterTwo-Regular.woff')  format('woff'),
+    url('../fonts/LobsterTwo/LobsterTwo-Regular.ttf')   format('truetype'),
+    url('../fonts/LobsterTwo/LobsterTwo-Regular.svg')   format('svg');
+}
+
+@font-face {
+  font-family: 'VT323';
+  src:
+    url('../fonts/VT323/VT323.eot')   format('embedded-opentype'),
+    url('../fonts/VT323/VT323.woff2') format('woff2'),
+    url('../fonts/VT323/VT323.woff')  format('woff'),
+    url('../fonts/VT323/VT323.ttf')   format('truetype'),
+    url('../fonts/VT323/VT323.svg')   format('svg');
+}
+
+/* =================== *\
+   ESTILOS PRINCIPALES
+\* =================== */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background: silver;  
+}
+
+body > .container { padding: 60px 15px 0; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: orange;
+  border-top: solid 1px #f5f5f5;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+  color: white;
+}
+
+.footer > .text-muted {
+  color: white;
+  text-shadow: 1px 2px 3px grey;
+}
+
+.footer > ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.25em;
+}
+
+.footer > ul li {
+  display: inline-block;
+}
+
+.footer ul li a {
+  color: white;
+  text-shadow: 1px 2px 3px grey;
+  padding: 0 1em;
+}
+
+.footer ul li:not(:last-child) {
+  border-right: 1px solid white;
+}
+
+/* ======== *\
+   CARRUSEL
+\* ======== */
+
+.carousel-inner .item img { width: 100%; }
+
+.container .carousel-indicators .active { background-color: lime; }
+
+.container .carousel-indicators li { border: 1px solid orange; }
+
+.carousel .glyphicon-chevron-right,
+.carousel .glyphicon-chevron-left {
+  color: lime;
+  background: orange;
+  border-radius: 5px;
+}
+
+/* =============== *\
+   MAIN NAV (MENU)
+\* =============== */
+
+.navbar-default { background: orange; }
+
+.navbar-header .navbar-brand,
+.navbar-header .navbar-brand:hover,
+.navbar-default .navbar-nav > li a {
+  color: white;
+  text-shadow: 1px 2px 3px grey;
+}
+
+.navbar-default .navbar-nav > li a:hover {
+  color: white;
+  text-shadow: 1px 2px 3px grey;
+  background: rgba(0,0,0, 0.1);
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background: gold;
+  color: white;
+  text-shadow: 1px 2px 3px grey;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover { background: gold; }
+
+.navbar-nav > li > .dropdown-menu { background: orange; }
+
+.dropdown-menu > li > a:hover { background: gold; }
+
+.navbar-default .navbar-toggle { border-color: white; }
+
+.navbar-default .navbar-toggle .icon-bar { background: white; }
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open >a:focus,
+.navbar-default .navbar-nav > .open >a:hover { color: white; }
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a { color: white; }
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: white;
+  background: rgba(0,0,0, 0.1);
+}
+
+/* ====== *\
+   PUZZLE
+\* ====== */
+
+.puzzle {
+  user-select: none;           /* user-select, hace el objeto no seleccionable */
+  -webkit-touch-callout: none; /* anula el efecto visual del touch prolongado sobre el objeto */
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* anula feedback de color al hacer tap en link */
+  -webkit-tap-highlight-color: transparent;   /* similar anterior en algunos android */
+
+  margin: 0;
+  padding: 0;
+}
+
+#sortable { 
+  list-style-type: none;
+  margin: auto;
+  padding-left: 0;
+  max-width: 580px;
+}
+
+#sortable li { 
+  float: left; 
+  width: 33.33333%; 
+}
+
+#sortable li img {
+  vertical-align: bottom;
+  width: 100%; 
+  height: auto;
+}
+
+/* En apaisado (landscape) anchura = máxima altura */
+@media ( orientation:landscape ) {
+
+  /* 100vh: 100% del alto de ventana visualizada */
+  #sortable { width: 100vh; }
+
+}
+
+/* En vertical (portrait) se adapta al máximo ancho */
+@media ( orientation:portrait ) {
+  
+  #sortable { width: 100%; }
+
+}

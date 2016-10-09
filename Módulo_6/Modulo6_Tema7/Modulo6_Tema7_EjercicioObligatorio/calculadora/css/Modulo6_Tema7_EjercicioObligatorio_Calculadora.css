@@ -1,0 +1,212 @@
+@charset "utf-8";
+/** Regular */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+html,
+body {
+  font-family:  "San Francisco", "Palatino Linotype", "Helvetica Neue", sans-serif;
+  margin: auto;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  display: block;
+  margin: auto;
+  padding: 0.50em;
+  width: 100%;
+}
+
+.header-calc {
+  text-align: center;
+}
+
+.header-calc h1 {
+  margin: 0;
+  letter-spacing: 0.02em;
+  display: inline;
+  font-size: 1.7em;
+}
+
+.header-calc p {
+  margin: 0 0 0.50em;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-size: 1.2em;
+}
+
+sup,
+sub {
+  font-size: 0.55em;
+}
+
+.section-calc input,
+#memoria,
+#display {
+  background: rgba(0,255,0, 0.5);
+  margin: 0.15em;
+  padding: 0 0.25em;
+  text-align: right;
+  font-size: 2em;
+  letter-spacing: 0.25em;
+  border: 5px inset;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#memoria,
+#display {
+  height: 1.7em;
+}
+
+.section-calc button {
+  flex: 1;
+  padding: 0.50em 0;
+  margin: 0.25em;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/*
+
+ALTURA BOTONES (← / →)
+
+*/
+
+#to-m,
+#from-m {
+  font-size: 1em;
+  padding: 0.10em;
+}
+
+#memoria,
+#display {
+  color: transparent;
+  text-shadow: 0 0 0 black;
+}
+
+#memoria:focus,
+#display:focus {
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+section {
+  background: black;
+  margin: auto;
+  max-width: 348px;
+  border: 1px solid;
+  border-right-style: none;
+  border-bottom-style: none;
+}
+
+.pantallaValores,
+.botones {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */ 
+}
+
+input {
+  background-color: #202020;
+  text-align: right;
+  font-size: 40px;
+  letter-spacing: 0.25em;
+  font-family: "San Francisco";
+  color: white;
+  width: 100%;
+  max-width: 348px;
+  height: 87px;
+  border: none;
+}
+
+button {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  height: 58px;
+  max-width: 58px;
+  border: 0.5px solid black;
+  border-left-style: none;
+  border-top-style: none;
+  float: left; /*Se utiliza para eliminar el espacio entre los botones */
+  margin: 0; /*Se utiliza para eliminar el espacio entre los botones */
+}
+
+
+#botonEspecialLimpiarC,
+#botonNumero0 {
+/*  max-width: none;  
+  flex: 1;*/
+}
+
+#botonNumero7,
+#botonNumero8,
+#botonNumero9,
+#botonNumero4,
+#botonNumero5,
+#botonNumero6,
+#botonNumero1,
+#botonNumero2,
+#botonNumero3,
+#botonNumero0,
+#botonNumeroDecimal {
+  background-color: #d4d5d9;
+  font-weight: bold;
+}
+
+#botonEspecialElevadoPotencia,
+#botonEspecialBorrar,
+#botonEspecialLimpiarC,
+#botonEspecialPositivoNegativo,
+#botonEspecialEntero,
+#botonEspecialElevadoPotencia2,
+#botonEspecialElevadoPotencia3,
+#botonEspecial2ElevadoN,
+#botonEspecialInverso,
+#botonEspecialFactorial,
+#botonEspecialRaiz2,
+#botonEspecialRaiz3,
+#botonEspecialSumatorio,
+#botonEspecialProducto {
+  background-color: #96989C;
+}
+
+#botonOperacionDivision,
+#botonOperacionMultiplicacion,
+#botonOperacionResta,
+#botonOperacionSuma,
+#botonOperacionIgual {
+  background-color: #f79010;
+  font-weight: bold;
+  color: white;
+  border: 0.5px solid black;
+  border-left-style: none;
+  border-top-style: none;
+}

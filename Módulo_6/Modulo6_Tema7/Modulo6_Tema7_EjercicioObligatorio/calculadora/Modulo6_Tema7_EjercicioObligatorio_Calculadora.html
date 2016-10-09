@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        
+        <title>Modulo 6 - Tema 7 Ejercício Obligatorio · Calculadora</title>
+        
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        
+        <!-- Custom styles for this template -->
+        <link href="../css/style.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="css/Modulo6_Tema7_EjercicioObligatorio_Calculadora.css"/>
+    </head>
+
+    <body id="cuerpoBody">
+    
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- BOTON NAV MOBILE -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- LOGO -->
+                    <a class="navbar-brand" href="../Modulo6_Tema7_EjercicioObligatorio.html"><span class="glyphicon glyphicon-education"></span> Modulo 6 - Tema 7 Ejercício Obligatorio</a>
+				</div>
+                    
+				<div id="navbar" class="collapse navbar-collapse">
+                    <!-- LINKS MENU -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="../Modulo6_Tema7_EjercicioObligatorio.html"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                        <li><a href="../puzzle/Modulo6_Tema7_EjercicioObligatorio_Puzzle.html"><span class="glyphicon glyphicon-th"></span> Puzzle</a></li>
+                        <li class="active"><a href="Modulo6_Tema7_EjercicioObligatorio_Calculadora.html"><span class="glyphicon glyphicon-pencil"></span> Calculadora</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        
+        <!-- Begin page content -->
+        <div class="container">
+          
+            <!-- CALCULADORA -->
+            <article class="article-calc">
+            
+                <!-- HEADER CALCULADORA -->
+                <header class="header-calc">
+                    <h1 id="h1"></h1>
+                    <p>Bienvenido a la calculadora de José Sánchez</p>
+                </header>
+                
+                <section class="section">
+                    <!-- display -->
+                    <div class="pantallaValores">
+						<input id="pantallaValores" type="text" placeholder="0" readonly>
+                    </div>
+                    
+                    <div class="botones">
+                        <button id="botonEspecialFactorial"        title="Factorial">n!</button>
+                        <button id="botonEspecialInverso"          title="Inverso"><sup>1</sup>/<sub>x</sub></button>
+                        <button id="botonEspecialEntero"           title="Entero">ent</button>
+                        <button id="botonEspecialBorrar"           title="Borrar">Bor</button>
+                        <button id="botonEspecialLimpiarC"         title="Limpar C">C</button>
+                        <button id="botonOperacionDivision"        title="División">&divide;</button>
+                    </div>
+                    <div class="botones">
+                        <button id="botonEspecialElevadoPotencia"  title="X elevado a Y">x<sup>y</sup></button>
+                        <button id="botonEspecial2ElevadoN"        title="2 elevado a n">2<sup>n</sup></button>
+                        <button id="botonNumero7"                  title="Nº 7">7</button>
+                        <button id="botonNumero8"                  title="Nº 8">8</button>
+                        <button id="botonNumero9"                  title="Nº 9">9</button>
+                        <button id="botonOperacionMultiplicacion"  title="Multiplicación">X</button>
+                    </div>
+                        <div class="botones">
+                        <button id="botonEspecialElevadoPotencia2" title="Cuadrado">x<sup>2</sup></button>
+                        <button id="botonEspecialElevadoPotencia3" title="Cubo">x<sup>3</sup></button>
+                        <button id="botonNumero4"                  title="Nº 4">4</button>
+                        <button id="botonNumero5"                  title="Nº 5">5</button>
+                        <button id="botonNumero6"                  title="Nº 6">6</button>
+                        <button id="botonOperacionResta"           title="Resta">-</button>
+                    </div>
+                    <div class="botones">
+                        <button id="botonEspecialRaiz2"            title="Raíz cuadrada"><sup>2</sup>&#8730;<sub>x</sub></button>
+                        <button id="botonEspecialRaiz3"            title="Raíz cubica"><sup>3</sup>&#8730;<sub>x</sub></button>
+                        <button id="botonNumero1"                  title="Nº 1">1</button>
+                        <button id="botonNumero2"                  title="Nº 2">2</button>
+                        <button id="botonNumero3"                  title="Nº 3">3</button>
+                        <button id="botonOperacionSuma"            title="Suma">+</button>
+                    </div>
+                    <div class="botones">
+                        <button id="botonEspecialSumatorio"        title="Sumatorio">&Sigma;</button>
+                        <button id="botonEspecialProducto"         title="Producto">&Pi;</button>
+                        <button id="botonNumero0"                  title="Nº 0">0</button>
+                        <button id="botonNumeroDecimal"            title="Decimal">.</button>
+                        <button id="botonEspecialPositivoNegativo" title="Pôsitivo/Negativo">&plusmn;</button>
+                        <button id="botonOperacionIgual"           title="Igual">=</button>
+                    </div>
+                </section>
+            </article>      
+        </div>
+        
+        <footer class="footer">
+            <!-- FOOTER NAV -->
+            <ul>
+                <li><a href="../Modulo6_Tema7_EjercicioObligatorio.html"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                <li><a href="../puzzle/Modulo6_Tema7_EjercicioObligatorio_Puzzle.html"><span class="glyphicon glyphicon-th"></span> Puzzle</a></li>
+                <li><a href="Modulo6_Tema7_EjercicioObligatorio_Calculadora.html"><span class="glyphicon glyphicon-pencil"></span> Calculadora</a></li>
+            </ul>
+            
+            <p class="text-muted">José Sánchez Rodríguez · 2016</p>
+        </footer>
+        
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
+        <!-- JQuery-ui -->
+        <script src="js/jquery-ui.min.js"> </script>
+        <!-- Bootstrap -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
+        <!-- SCRIPT SALUDO RECICLADO M3 -->
+        <script>
+            var fecha = new Date();
+            var msj;
+            
+            if      (fecha.getHours() < 7)  { msj = "Buenas noches";}
+            else if (fecha.getHours() < 12) { msj = "Buenos días";}
+            else if (fecha.getHours() < 21) { msj = "Buenas tardes";}
+            else                            { msj = "Buenas noches";}
+            
+            $( function () { $('#h1').html( msj ); });      
+        </script>
+        <!-- CUSTOM JS -->
+        <script src="js/Modulo6_Tema7_EjercicioObligatorio_Calculadora.js"></script>
+    </body>
+</html>
